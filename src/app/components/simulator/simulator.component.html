@@ -1,0 +1,230 @@
+<app-user-toolbar>
+  <div class="container">
+    <div class="content">
+      <h1 class="heading">Registro:</h1>
+      <h2 class="current-date">{{ currentDate }}</h2>
+      <label for="moneda">Moneda:</label>
+      <div>
+        <select id="moneda" [(ngModel)]="enDolares" >
+          <option value="false">Soles</option>
+          <option value="true">Dólares</option>
+        </select>
+      </div>
+  
+      <div>
+        <label for="precioActivo">Precio del Activo: </label>
+          <div>
+            <input type="number" [(ngModel)]="precioActivo" (ngModelChange)="validarActivo()" [class.invalid]="precioActivoInvalid" >
+          </div>
+        <div *ngIf="precioActivoInvalid" class="error-message">Debe ser mayor a 0</div>
+      </div>
+  
+      <div>
+        <label for="cuotaInicial">Cuota Inicial:</label>
+          <div>
+            <input id="cuotaInicial" type="number" min="1" [(ngModel)]="cuotaInicial" required (ngModelChange)="validarCuotaInicial()">
+          </div>
+        <div *ngIf="cuotaInicialInvalid" class="error-message">La cuota inicial debe ser mayor al 20% del precio de la vivienda y menor al precio del activo</div>           
+      </div>
+
+      <div>
+        <label for="cuotaFinal">Cuota Final:</label>
+          <div>
+            <input id="cuotaFinal" type="number" min="1" [(ngModel)]="cuotaFinal" required (ngModelChange)="validarCuotaFinal()">
+          </div>     
+          <div *ngIf="cuotaFinalInvalid" class="error-message">La cuota final debe ser mayor al 20% del precio de la vivienda y menor al precio del activo</div>   
+      </div>
+
+      
+      <div>
+        <label for="tasaEfectiva">Tasa Efectiva Anual(%):</label>
+        <form>
+          <input id="tasaEfectiva" type="range" name="points" min="8.49" max="20.26" step="0.01" [(ngModel)]="tasaEfectivaAnual" required (ngModelChange)="validarTasaEfectiva()">
+          <output id="tasaEfectiva-output">{{ tasaEfectivaAnual }} %</output>
+        </form>
+        <div *ngIf="tasaEfectivaInvalid" class="error-message">La tasa efectiva debe ser mayor o igual a 8 y menor o igual a 13</div>
+      </div>
+
+      <div>
+        <label for="gps">GPS:</label>
+        <div>
+          <input id="gps" type="number" min="1" [(ngModel)]="gps" required (ngModelChange)="validarGPS()">
+        </div>   
+        <div *ngIf="precioGPSInvalid" class="error-message">El GPS debe ser mayor a 0 y menor a 100</div>
+      </div>
+
+      <div>
+        <label for="portes">Portes:</label>
+        <div>
+          <input id="portes" type="number" min="1" [(ngModel)]="portes" (ngModelChange)="validarPortes()">
+        </div>   
+        <div *ngIf="precioPortesInvalid" class="error-message">Los Portes deben ser mayor a 0 y menor a 100</div>
+      </div>
+
+      <div>
+        <label for="gastosAdmin">Gastos de Administracion:</label>
+        <div>
+          <input id="gastosAdmin" type="number" min="1" [(ngModel)]="gastosAdmin" (ngModelChange)="validarGAdministracion()">
+        </div>   
+        <div *ngIf="precioAdministracionInvalid" class="error-message">Los Gastos de Administración debe ser mayor a 0 y menor a 100</div>
+      </div>
+
+      <div>
+        <label for="SeguroDregravamen">Seguro Degravamen Mensual(%):</label>
+        <div>
+          <input id="SeguroDregravamen" type="number" min="1" [(ngModel)]="SeguroDregravamen">
+        </div>   
+      </div>
+      
+      <div>
+        <label for="SeguroRiesgo">Seguro de Riesgo(%):</label>
+        <div>
+          <input id="SeguroRiesgo" type="number"  min="1"  [(ngModel)]="SeguroRiesgo" >
+        </div>
+      </div>
+      
+
+      <label for="moneda">Número de cuotas (meses):</label>
+      <div>
+        <select id="numeroCuotas" [(ngModel)]="enCuotas" >
+          <option value="false">24 meses</option>
+          <option value="true">36 meses</option>
+        </select>
+      </div>
+
+      <div>
+        <label for="tasaDescuento">Tasa de descuento(%):</label>
+        <div>
+          <input id="tasaDescuento" type="number" min="1" [(ngModel)]="tasaDescuento">
+        </div>   
+      </div>
+
+      <div class="checkboxs-container">
+        <label for="costesNotariales">Costes Notariales :</label>
+        <div class="checkbox-container">
+            <div>
+                <input id="costesNotarialesNumerico" type="number" min="0" [(ngModel)]="costesNotarialesNumerico" required (ngModelChange)="validarCostesNotariales()">
+            </div>
+            <div class="checkbox-group">
+                <label for="prestamoNotarial">Prestamo</label>
+                <input id="prestamoNotarial" type="checkbox" [(ngModel)]="prestamoNotarial"  (ngModelChange)="toggleCostesNotariales('prestamo')">
+                <label for="periodoGraciaParcial">Efectivo</label>
+                <input id="efectivoNotarial" type="checkbox" [(ngModel)]="efectivoNotarial"  (ngModelChange)="toggleCostesNotariales('efectivo')">
+            </div>
+        </div>
+        <div *ngIf="costesnotarialesInvalid" class="error-message">Los Costes Notariales deben ser positivos </div>
+      </div>
+
+      <div class="checkboxs-container">
+        <label for="costesRegistrales">Costes Registrales :</label>
+        <div class="checkbox-container">
+            <div>
+                <input id="costesRegistralesNumerico" type="number" min="0" [(ngModel)]="costesRegistralesNumerico" required (ngModelChange)="validarCostesRegistrales()">
+            </div>
+            <div class="checkbox-group">
+              <label for="prestamoResgistral">Prestamo</label>
+              <input id="prestamoRegistral" type="checkbox" [(ngModel)]="prestamoRegistral" (ngModelChange)="toggleCostesRegistrales('prestamo')">
+              <label for="periodoGraciaParcial">Efectivo</label>
+              <input id="efectivoRegistral" type="checkbox" [(ngModel)]="efectivoRegistral"  (ngModelChange)="toggleCostesRegistrales('efectivo')">
+          </div>
+        </div>
+        
+      </div>
+
+      
+      <div class="checkboxs-container">
+        <label for="periodoGracia">Periodo de Gracia:</label>
+        <div class="checkbox-container">
+            <div>
+                <input id="periodoGraciaNumerico" type="number" min="0" [(ngModel)]="periodoGraciaNumerico" required>
+            </div>
+            <div class="checkbox-group">
+                <label for="periodoGraciaTotal">Total</label>
+                <input id="periodoGraciaTotal" type="checkbox" [(ngModel)]="periodoGraciaTotal" name="periodoGracia" (ngModelChange)="togglePeriodoGracia('total')">
+                <label for="periodoGraciaParcial">Parcial</label>
+                <input id="periodoGraciaParcial" type="checkbox" [(ngModel)]="periodoGraciaParcial" name="periodoGracia" (ngModelChange)="togglePeriodoGracia('parcial')">
+            </div>
+        </div>
+      </div>
+         
+          
+      <button class="btn btn-primary" (click)="Operacion()">Calcular</button>
+      <button class="btn btn-secondary limpiar-btn" (click)="Limpiar()">Limpiar</button>
+
+      <div *ngIf="mostrarResultados" class="resultados">
+        <h1> Resultados: </h1>
+        <p> TIR: {{ tir }}%</p>
+        <p> Tasa Descuento: {{ resultadoDescuento }}%</p>
+        <p> TCEA: {{ tcea }}%</p>
+        <p> VAN: S/. {{ van | number:'1.2-2'}}</p>
+        <h1>Cronograma Cuota Regular</h1> 
+            
+
+       
+      <table *ngIf="mostrarTabla ">
+        <thead>
+          <tr>
+            <th>N°</th>
+            <th>Fecha</th>
+            <th>Saldo Inicial</th>
+            <th>Interés</th>
+            <th>Cuota</th>
+            <th>Amortizacion</th>
+            <th>Degravamen</th>
+            <th>Riesgo</th>
+            <th>GPS</th>
+            <th>Portes</th>
+            <th>Gastos Adm.</th>
+            <th>Saldo Final</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let saldo of saldoInicial; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ obtenerFecha(i) }}</td>
+            <td>{{ saldo | number:'1.2-2'}}</td>
+            <td>{{ interes[i] }}</td> 
+            <td>{{ cuotaArr[i] | number:'1.2-2' }}</td>
+            <td>{{ amortizacion[i] }}</td>
+            <td>{{ degravamen[i] | number:'1.2-2'}}</td>
+            <td>{{ inmueble[i] }}</td>
+            <td>{{ gpsArr[i] }}</td>
+            <td>{{ portesArr[i] }}</td>
+            <td>{{ gastosAdminArr[i] }}</td>
+            <td>{{ saldoFinal[i] }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+      <h1>Cronograma Cuota Final o Cuoton</h1> 
+
+      <table *ngIf="mostrarTabla ">
+        <thead>
+          <tr>
+            <th>N°</th>
+            <th>Fecha</th>
+            <th>Saldo Inicial</th>
+            <th>Interés</th>
+            <th>Amortizacion</th>
+            <th>Degravamen</th>
+            <th>Saldo Final</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let saldo of saldoInicialCuoton; let i = index">
+            <td>{{ i + 1 }}</td>
+            <td>{{ obtenerFecha(i) }}</td>
+            <td>{{ saldoInicialCuoton[i] | number:'1.2-2'}}</td>
+            <td>{{ interesCuoton[i] }}</td> 
+            <td>{{ amortizacionCuoton[i] }}</td>
+            <td>{{ degravamenCuoton[i] | number:'1.2-2'}}</td>
+            <td>{{ saldoFinalCuoton[i] }}</td>
+          </tr>
+        </tbody>
+      </table>
+
+    </div> 
+      
+    </div>
+  </div>
+</app-user-toolbar>

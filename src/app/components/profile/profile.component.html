@@ -1,0 +1,21 @@
+<app-user-toolbar>
+    <div class="container">
+        <mat-card class="example-card">
+            <mat-card-header class="example-card-header">
+                <div mat-card-avatar class="example-header-image"></div>
+                <mat-card-title> {{user_now?.name}} </mat-card-title>
+              </mat-card-header>
+              <div class="image-container">
+                  <img mat-card-image src="https://cdn-icons-png.flaticon.com/512/3141/3141980.png" alt="Finanzas">
+              </div>
+            <mat-card-content>
+                <p>
+                Correo: {{user_now?.email}}
+                </p>
+                <p>
+                Esta cuenta es parte de un proyecto desarrollado para el curso de Finanzas e Ingenieria Economica.
+                </p>
+            </mat-card-content>
+        </mat-card>
+    </div>
+</app-user-toolbar>

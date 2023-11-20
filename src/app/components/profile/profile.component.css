@@ -1,0 +1,28 @@
+.example-card {
+    max-width: 550px;
+    margin: 0 auto;
+}
+
+.container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
+
+.example-header-image {
+    background-image: url('https://publicdomainvectors.org/tn_img/abstract-user-flat-4.webp');
+    background-size: cover;
+}
+
+.image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 500px; /* Ajusta la altura según tus necesidades */
+}
+
+.example-card-header {
+    display: flex;
+    align-items: center;
+}

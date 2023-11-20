@@ -1,0 +1,119 @@
+{
+  "users": [
+    {
+      "name": "John Doe",
+      "email": "johndoe1@gmail.com",
+      "password": "123456",
+      "repassword": "123456",
+      "id": 1
+    },
+    {
+      "name": "Marzzio Chicana",
+      "email": "oizzram1@gmail.com",
+      "password": "123456789",
+      "repassword": "123456789",
+      "id": 2
+    },
+    {
+      "name": "Selene Romero",
+      "email": "selrom1@gmail.com",
+      "password": "abcd",
+      "repassword": "abcd",
+      "id": 3
+    },
+    {
+      "name": "Lucas",
+      "email": "lucas@gmail.com",
+      "password": "123456",
+      "repassword": "123456",
+      "id": 5
+    }
+  ],
+  "data": [
+    {
+      "moneda": "Soles",
+      "precioVivienda": 64200,
+      "cuotaInicial": 4815,
+      "tasaEfectiva": 8,
+      "numeroCuotas": 120,
+      "periodoGracia": 0,
+      "periodoGraciaParcial": 0,
+      "periodoGraciaTotal": 0,
+      "cuota": 360.08,
+      "tir": 360.08,
+      "tasadescuento": 360.08,
+      "tcea": 360.08,
+      "van": 360.08,
+      "userId": 2,
+      "id": 1
+    },
+    {
+      "moneda": "Soles",
+      "precioVivienda": 100000,
+      "cuotaInicial": 20000,
+      "tasaEfectiva": 12.56,
+      "numeroCuotas": 24,
+      "periodoGracia": 0,
+      "periodoGraciaParcial": 0,
+      "periodoGraciaTotal": 0,
+      "cuota": 3041.98,
+      "tir": 1.07,
+      "tasadescuento": 50,
+      "tcea": 13.58,
+      "van": 19815.92,
+      "userId": 5,
+      "id": 2
+    },
+    {
+      "moneda": "Soles",
+      "precioVivienda": 500000,
+      "cuotaInicial": 100000,
+      "tasaEfectiva": 8.49,
+      "numeroCuotas": 24,
+      "periodoGracia": 0,
+      "periodoGraciaParcial": 0,
+      "periodoGraciaTotal": 0,
+      "cuota": 14374.82,
+      "tir": 0.76,
+      "tasadescuento": 0,
+      "tcea": 9.48,
+      "van": 113043.2,
+      "userId": 5,
+      "id": 3
+    },
+    {
+      "moneda": "Soles",
+      "precioVivienda": 4500000,
+      "cuotaInicial": 2050444,
+      "tasaEfectiva": 8.49,
+      "numeroCuotas": 24,
+      "periodoGracia": 0,
+      "periodoGraciaParcial": 0,
+      "periodoGraciaTotal": 0,
+      "cuota": -2931.91,
+      "tir": 0.75,
+      "tasadescuento": 3.44,
+      "tcea": 9.39,
+      "van": 1145936.71,
+      "userId": 5,
+      "id": 4
+    },
+    {
+      "moneda": "Soles",
+      "precioVivienda": 100000,
+      "cuotaInicial": 20000,
+      "tasaEfectiva": 8.49,
+      "numeroCuotas": 24,
+      "periodoGracia": 0,
+      "periodoGraciaParcial": 0,
+      "periodoGraciaTotal": 0,
+      "cuota": 2874.96,
+      "tir": 0.76,
+      "tasadescuento": 3.44,
+      "tcea": 9.48,
+      "van": 22608.64,
+      "userId": 5,
+      "id": 5
+    }
+  ]
+}

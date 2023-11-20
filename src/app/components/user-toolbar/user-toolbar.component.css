@@ -1,0 +1,53 @@
+.container {
+  display: flex;
+  
+}
+
+.sidebar {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  width: 200px;
+  background-color: rgba(29, 31, 54, 255);
+  padding: 40px;
+}
+
+
+.sidebar ul {
+  list-style: none;
+  font-family: 'Work Sans', sans-serif;
+}
+
+.sidebar ul li {
+  margin-bottom: 30px;
+  
+}
+.sidebar ul li a {
+  text-decoration: none; /* Elimina el subrayado de los enlaces */
+  color: white; /* Cambia el color de la letra a blanco */
+}  
+
+.sidebar ul li a:hover {
+  color: blue; /* Cambia el color de la letra a azul al pasar el mouse sobre el enlace */
+}
+
+.sidebar ul li a.active {
+  background-color: #d1f466; /* Establece el color de fondo verde para el enlace seleccionado */
+  color: blue; /* Cambia el color de la letra a azul para el enlace seleccionado */
+  width: 180px; /* Establece un ancho fijo para el cuadro */
+  height: 30px; /* Establece una altura fija para el cuadro */
+  display: flex;
+  border-radius: 5%;
+  align-items: center;
+  justify-content: center;
+}
+
+.main-content {
+margin-left: 300px; /* Ajusta el margen izquierdo para evitar que el contenido se solape con el sidebar */
+}
+
+.button-content {
+display:flex; 
+align-items: center;
+}
